@@ -1,12 +1,13 @@
-/* Colours mirror the app's tokens (frontend/src/index.css). */
+/* Cream base from the social tile, with its dot grid; navy, wine and teal
+   mirror the app's tokens (frontend/src/index.css). The Tally form is
+   embedded with a transparent background, so it sits on the cream. */
 :root {
+  --cream: #f6f5f0;
   --navy: #0d0a45;
   --wine: #6d0d4a;
   --teal: #48d5c4;
-  --bg: #e9ebf0;
-  --panel: #f4f5f8;
-  --text-muted: #565a72;
-  --border: #d4d7e1;
+  --text-muted: #4a4e66;
+  --dots: rgba(13, 10, 69, 0.13);
 }
 
 @font-face {
@@ -47,7 +48,11 @@ body {
   font-size: 1.0625rem;
   line-height: 1.6;
   color: var(--navy);
-  background: #fff;
+  background-color: var(--cream);
+  /* The tile's dot grid: 1.3 px dots every 24 px. */
+  background-image: radial-gradient(var(--dots) 1.3px, transparent 1.4px);
+  background-size: 24px 24px;
+  background-position: 0 0;
 }
 
 .wrap {
@@ -66,11 +71,6 @@ h2 {
   margin: 0 0 0.75rem;
 }
 
-h1 {
-  font-size: clamp(2rem, 5vw, 3.25rem);
-  max-width: 20ch;
-}
-
 h2 {
   font-size: 1.5rem;
 }
@@ -83,102 +83,117 @@ a {
   color: var(--wine);
 }
 
-a:focus-visible,
-.button:focus-visible {
-  outline: 3px solid var(--teal);
-  outline-offset: 2px;
-}
-
-.site-header {
-  border-bottom: 1px solid var(--border);
-  background: #fff;
-}
-
-.site-header .wrap {
-  display: flex;
-  align-items: center;
-  height: 4rem;
-}
-
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.625rem;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--navy);
-  text-decoration: none;
+a:focus-visible {
+  outline: 3px solid var(--wine);
+  outline-offset: 3px;
 }
 
 .hero {
-  padding: 4rem 0 3.5rem;
-  background: var(--panel);
-  border-bottom: 4px solid var(--teal);
+  padding: 2.5rem 0 3.5rem;
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 0 auto 1.5rem;
+  max-width: 52rem;
+}
+
+.hero h1 img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .lede {
-  max-width: 40rem;
+  max-width: 38rem;
+  margin: 0 auto 1.5rem;
   font-size: 1.1875rem;
   color: var(--text-muted);
 }
 
+/* Navy outline with an offset shadow, like the wordmark. */
 .button {
   display: inline-block;
-  margin-top: 0.5rem;
-  padding: 0.75rem 1.25rem;
-  border-radius: 0.5rem;
-  background: var(--navy);
-  color: #fff;
-  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--navy);
+  border-radius: 0.625rem;
+  background: var(--teal);
+  box-shadow: 4px 4px 0 var(--navy);
+  color: var(--navy);
+  font-weight: 700;
   text-decoration: none;
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease;
 }
 
 .button:hover {
-  background: var(--wine);
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 var(--navy);
+}
+
+.button:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0 var(--navy);
 }
 
 .features {
-  padding: 3.5rem 0;
+  padding: 1rem 0 3.5rem;
 }
 
 .grid {
   display: grid;
-  gap: 2rem;
+  gap: 1.5rem;
   grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
 }
 
-.features h2 {
-  font-size: 1.25rem;
-  padding-top: 0.75rem;
-  border-top: 3px solid var(--wine);
+.grid article {
+  padding: 1.25rem 1.25rem 0.5rem;
+  border: 2px solid var(--navy);
+  border-radius: 0.75rem;
+  background: #fff;
+  box-shadow: 4px 4px 0 var(--navy);
 }
 
-.features p {
+.grid h2 {
+  font-size: 1.25rem;
+  color: var(--wine);
+}
+
+.grid p {
   color: var(--text-muted);
 }
 
+/* Dashed, like the sketched half of the bus. */
 .beta {
   padding: 3.5rem 0;
-  background: var(--bg);
+}
+
+.beta .wrap {
+  width: calc(100% - 2rem);
+  padding: 2rem 1.5rem 1.5rem;
+  border: 2px dashed var(--navy);
+  border-radius: 0.75rem;
+  background: var(--cream);
 }
 
 .form {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 .form-pending {
   padding: 1rem;
-  border: 1px dashed var(--text-muted);
-  border-radius: 0.5rem;
+  border-left: 4px solid var(--teal);
+  background: #fff;
   color: var(--text-muted);
 }
 
 .privacy {
-  padding: 3rem 0;
+  padding: 0 0 3rem;
 }
 
 .privacy h2 {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
 }
 
 .privacy p {
@@ -188,7 +203,8 @@ a:focus-visible,
 
 .site-footer {
   padding: 1.5rem 0;
-  border-top: 1px solid var(--border);
+  border-top: 2px solid var(--navy);
+  background: var(--cream);
   font-size: 0.875rem;
   color: var(--text-muted);
 }

@@ -3,8 +3,8 @@
 The TransitSketch landing page and beta interest form (TransitSketch/transitsketch#280). Plain static HTML and CSS, no build step, served by GitHub Pages from `main`.
 
 - `index.html`: the page. The sign-up form is a Tally embed: set `data-tally-form` on the `.form` container to the form id (the part after `tally.so/r/`). Until then the page says the form opens soon.
-- `styles.css`: colours mirror the app's tokens (`frontend/src/index.css` in the app repo).
-- `assets/`: logo, social tile (1200×630, used for link previews), and Roboto (SIL OFL, see `assets/fonts/LICENSE-Roboto.txt`).
+- `styles.css`: a cream base (`#F6F5F0`) with the social tile's dot grid; navy, wine and teal mirror the app's tokens (`frontend/src/index.css` in the app repo). The Tally form is embedded with a transparent background, so it sits on the cream.
+- `assets/`: logo, hero artwork (the social tile without its background, cropped), social tile (1200×630, used for link previews), and Roboto (SIL OFL, see `assets/fonts/LICENSE-Roboto.txt`).
 
 To preview locally: `python -m http.server` in this folder.
 
