@@ -1,0 +1,198 @@
+/* Colours mirror the app's tokens (frontend/src/index.css). */
+:root {
+  --navy: #0d0a45;
+  --wine: #6d0d4a;
+  --teal: #48d5c4;
+  --bg: #e9ebf0;
+  --panel: #f4f5f8;
+  --text-muted: #565a72;
+  --border: #d4d7e1;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/roboto-latin-400-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('assets/fonts/roboto-latin-500-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('assets/fonts/roboto-latin-700-normal.woff2') format('woff2');
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--navy);
+  background: #fff;
+}
+
+.wrap {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.narrow {
+  max-width: 44rem;
+}
+
+h1,
+h2 {
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  max-width: 20ch;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+a {
+  color: var(--wine);
+}
+
+a:focus-visible,
+.button:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 2px;
+}
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: #fff;
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  height: 4rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.hero {
+  padding: 4rem 0 3.5rem;
+  background: var(--panel);
+  border-bottom: 4px solid var(--teal);
+}
+
+.lede {
+  max-width: 40rem;
+  font-size: 1.1875rem;
+  color: var(--text-muted);
+}
+
+.button {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  background: var(--navy);
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: var(--wine);
+}
+
+.features {
+  padding: 3.5rem 0;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}
+
+.features h2 {
+  font-size: 1.25rem;
+  padding-top: 0.75rem;
+  border-top: 3px solid var(--wine);
+}
+
+.features p {
+  color: var(--text-muted);
+}
+
+.beta {
+  padding: 3.5rem 0;
+  background: var(--bg);
+}
+
+.form {
+  margin-top: 1.5rem;
+}
+
+.form-pending {
+  padding: 1rem;
+  border: 1px dashed var(--text-muted);
+  border-radius: 0.5rem;
+  color: var(--text-muted);
+}
+
+.privacy {
+  padding: 3rem 0;
+}
+
+.privacy h2 {
+  font-size: 1.25rem;
+}
+
+.privacy p {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+}
+
+.site-footer {
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.site-footer p {
+  margin: 0;
+}

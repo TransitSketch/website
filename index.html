@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en-CA">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TransitSketch: sketch transit networks, measure who they serve</title>
+    <meta
+      name="description"
+      content="TransitSketch is a free, open-source tool for sketching transit networks and measuring access to opportunities and who it reaches. Sign up to try the beta."
+    />
+    <link rel="icon" href="favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <meta name="theme-color" content="#0D0A45" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://transitsketch.city/" />
+    <meta property="og:title" content="TransitSketch" />
+    <meta
+      property="og:description"
+      content="Sketch transit networks and measure who they serve. Sign up to try the beta."
+    />
+    <meta property="og:image" content="https://transitsketch.city/assets/social.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="./">
+          <img src="assets/logo.svg" alt="" width="40" height="40" />
+          <span>TransitSketch</span>
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="wrap">
+          <h1>Sketch a transit network. See who it serves.</h1>
+          <p class="lede">
+            TransitSketch is a free, open-source tool for researchers, advocates and
+            planners. Draw routes and timetables on a map, then measure access to
+            jobs, schools, groceries and more, and how fairly that access is shared.
+          </p>
+          <a class="button" href="#beta">Sign up for the beta</a>
+        </div>
+      </section>
+
+      <section class="features">
+        <div class="wrap grid">
+          <article>
+            <h2>Sketch first</h2>
+            <p>
+              Draw routes, stops and service on a map, or start from an existing
+              GTFS feed. Compare scenarios side by side. It feels like a planning
+              tool, not a data-entry form.
+            </p>
+          </article>
+          <article>
+            <h2>Measure access</h2>
+            <p>
+              Count the opportunities each neighbourhood can reach by transit,
+              using real timetables and street networks, for any day and time of
+              day.
+            </p>
+          </article>
+          <article>
+            <h2>Ask who benefits</h2>
+            <p>
+              Bring in census data and see how access is shared across groups:
+              averages, inequality ratios and transport disadvantage, with charts
+              and maps ready to export.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="beta" id="beta">
+        <div class="wrap narrow">
+          <h2>Try the beta</h2>
+          <p>
+            We're looking for people to try TransitSketch on real projects and tell
+            us what works and what doesn't. Leave your details and we'll be in touch
+            when the beta opens.
+          </p>
+          <!-- Set data-tally-form to the Tally form id (the part after
+               tally.so/r/) to show the form. -->
+          <div class="form" data-tally-form="">
+            <p class="form-pending">The sign-up form opens soon.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="privacy" id="privacy">
+        <div class="wrap narrow">
+          <h2>Privacy</h2>
+          <p>
+            We collect the details you give in the form (your name, email,
+            role, organisation and what you'd use TransitSketch for) only to
+            contact you about beta testing. We don't share them with anyone or add
+            you to any other mailing list. The form is run by Tally, which stores
+            the answers on our behalf. We delete the list once beta testing ends.
+            To be removed sooner, reply to any email from us and ask.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>
+          TransitSketch is commissioned by Mobilizing Justice and built by
+          Klumpentown Consulting.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Show the Tally form once its id is set on the container.
+      (function () {
+        var el = document.querySelector('[data-tally-form]');
+        var id = el && el.getAttribute('data-tally-form');
+        if (!id) return;
+        el.innerHTML =
+          '<iframe data-tally-src="https://tally.so/embed/' +
+          encodeURIComponent(id) +
+          '?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"' +
+          ' loading="lazy" width="100%" height="600" frameborder="0"' +
+          ' title="Beta sign-up form"></iframe>';
+        var s = document.createElement('script');
+        s.src = 'https://tally.so/widgets/embed.js';
+        s.onload = function () {
+          if (window.Tally) window.Tally.loadEmbeds();
+        };
+        document.body.appendChild(s);
+      })();
+    </script>
+  </body>
+</html>
